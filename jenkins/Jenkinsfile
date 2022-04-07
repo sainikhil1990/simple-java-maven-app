@@ -14,9 +14,13 @@ pipeline {
   }
     stage('Test'){
       steps {
-       sh 'cd src/test/java/com/mycompany/app' 
-       sh 'ls'
-       sh 'javac AppTest.java'
+       sh 'mvn test'
+        post {
+          always {
+           junit 'target/surefire-reports/*.xml' 
+          }
+         
+        }
       }
     }
 }

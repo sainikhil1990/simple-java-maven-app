@@ -15,6 +15,7 @@ pipeline {
     stage('Test'){
       steps {
        sh 'cd src/test/java/com/mycompany/app' 
+       sh 'ls'
        sh 'javac AppTest.java'
       }
     }

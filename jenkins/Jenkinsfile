@@ -12,5 +12,11 @@ pipeline {
         sh 'mvn -B -DskipTests clean package'
     }
   }
+    stage('Test'){
+      steps {
+       sh 'cd src/test/java/com/mycompany/app' 
+       sh 'javac AppTest.java'
+      }
+    }
 }
 }
